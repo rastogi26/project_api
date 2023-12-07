@@ -1,0 +1,53 @@
+package services
+
+import (
+	"context"
+	"log"
+
+	"github.com/rastogi26/gofr-netflix/models"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/mongo"
+)
+
+
+
+var collection *mongo.Collection
+
+
+func init() {
+	// MongoDB collection setup
+	collection = Client.Database(DbName).Collection("watchlist")
+}
+
+
+func InsertOneMovie(movie models.Netflix) {
+	_, err := collection.InsertOne(context.Background(), movie)
+	if err != nil {
+		// Handle error
+		log.Fatal(err)
+	}
+}
+
+func GetAllMovies() []primitive.M {
+	cur, err := collection.Find(context.Background(), bson.D{{}})
+	if err != nil {
+		// Handle error
+		log.Fatal(err)
+	}
+
+	var movies []primitive.M
+	for cur.Next(context.Background()) {
+		var movie bson.M
+		err := cur.Decode(&movie)
+		if err != nil {
+			// Handle error
+			log.Fatal(err)
+			
+		}
+		movies = append(movies, movie)
+	}
+
+	defer cur.Close(context.Background())
+	return movies
+}
