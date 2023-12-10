@@ -2,6 +2,7 @@ package services
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	"github.com/rastogi26/gofr-netflix/models"
@@ -51,3 +52,43 @@ func GetAllMovies() []primitive.M {
 	defer cur.Close(context.Background())
 	return movies
 }
+
+func UpdateOneMovie(movieId string) {
+	id, _ := primitive.ObjectIDFromHex(movieId)
+	filter := bson.M{"_id": id}
+	update := bson.M{"$set": bson.M{"watched": true}}
+
+	_, err := collection.UpdateOne(context.Background(), filter, update)
+	if err != nil {
+		// Handle error
+		log.Fatal(err)
+	}
+	
+}
+
+func DeleteOneMovie(movieId string) {
+	id, _ := primitive.ObjectIDFromHex(movieId)
+	filter := bson.M{"_id": id}
+
+	 deleteCount, err := collection.DeleteOne(context.Background(), filter)
+	if err != nil {
+		// Handle error
+		log.Fatal(err)
+	}
+	fmt.Println("MOvie got delete with delete count: ", deleteCount)
+
+}
+
+func DeleteAllMovie() int64 {
+	deleteResult, err := collection.DeleteMany(context.Background(), bson.D{{}})
+	if err != nil {
+		// Handle error
+		log.Fatal(err)
+	}
+
+	return deleteResult.DeletedCount
+}
+
+
+
+
