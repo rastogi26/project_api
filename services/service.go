@@ -53,6 +53,7 @@ func GetAllMovies() []primitive.M {
 	return movies
 }
 
+//  this function updates the watched status from false to true.
 func UpdateOneMovie(movieId string) {
 	id, _ := primitive.ObjectIDFromHex(movieId)
 	filter := bson.M{"_id": id}
