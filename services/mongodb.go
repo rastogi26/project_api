@@ -4,21 +4,31 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"github.com/joho/godotenv"
 )
 
 
 var (
 	Client *mongo.Client
-	DbName = "netflix"
+	DbName string
 )
 
 func init() {
 
 	// MongoDB connection setup
-	connectionString := "mongodb://localhost:27017"
+	// connectionString := "mongodb://localhost:27017"
+	err := godotenv.Load("config/.env") 
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	DbName = os.Getenv("MONGO_DB_NAME")
+
+	connectionString := os.Getenv("MONGO_DB_CONNECTION_STRING")
 	clientOptions := options.Client().ApplyURI(connectionString)
 
 	client, err := mongo.Connect(context.Background(), clientOptions)
