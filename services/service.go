@@ -58,7 +58,9 @@ func UpdateOneMovie(movieId string) {
 	id, _ := primitive.ObjectIDFromHex(movieId)
 	filter := bson.M{"_id": id}
 	update := bson.M{"$set": bson.M{"watched": true}}
-
+     
+	//  log.Println("call1 received")
+	//  log.Printf("ID : %v\n", id)
 	_, err := collection.UpdateOne(context.Background(), filter, update)
 	if err != nil {
 		// Handle error
@@ -71,12 +73,15 @@ func DeleteOneMovie(movieId string) {
 	id, _ := primitive.ObjectIDFromHex(movieId)
 	filter := bson.M{"_id": id}
 
+	 
+     //  log.Println("call2 received")
+	//  log.Printf("ID : %v\n", id)
 	 deleteCount, err := collection.DeleteOne(context.Background(), filter)
 	if err != nil {
 		// Handle error
 		log.Fatal(err)
 	}
-	fmt.Println("MOvie got delete with delete count: ", deleteCount)
+	fmt.Println("Movie got delete with delete count: ", deleteCount)
 
 }
 

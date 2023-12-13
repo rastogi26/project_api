@@ -1,10 +1,12 @@
 package handlers
 
-import(
+import (
+	
+
 	"github.com/rastogi26/gofr-netflix/models"
 	"github.com/rastogi26/gofr-netflix/services"
-	"gofr.dev/pkg/gofr"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"gofr.dev/pkg/gofr"
 )
 
 type NetflixHandler struct{}
@@ -30,7 +32,8 @@ func (h NetflixHandler) AddMovie(ctx *gofr.Context) (interface{}, error) {
 }
 
 func (h NetflixHandler) WatchedMovie(ctx *gofr.Context) (interface{}, error) {
-	movieId := ctx.Param("id")
+	// log.Println("Call1 send")
+	movieId := ctx.PathParam("id")
 	services.UpdateOneMovie(movieId)
 	return "Movie marked as watched", nil
 }
@@ -42,7 +45,8 @@ func (h NetflixHandler) RemoveAllMovies(ctx *gofr.Context) (interface{}, error) 
 
 
 func (h NetflixHandler) RemoveMovie(ctx *gofr.Context) (interface{}, error) {
-	movieId := ctx.Param("id")
+	// log.Println("Call2 send")
+	movieId := ctx.PathParam("id")
 
 	// Check if movieId is a valid ObjectId
     _, err := primitive.ObjectIDFromHex(movieId)
