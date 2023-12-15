@@ -111,11 +111,11 @@ curl -X DELETE http://localhost:8000/removeallmovies
 The project uses MongoDB as a database, and the connection details are stored in the `.env` file. Ensure you have a MongoDB Atlas account and update the `.env` file with your connection string. Refer to `.env.sample` file for help.
 
 ## UML Diagram
-![Alt text](<UML GO.png>)
 
-![Alt text](<Flow Structure.png>)
+![UML GO](https://github.com/rastogi26/project_api/assets/72301136/b4fc67a0-0e9f-489b-877a-5a1b31b69a88)
 
 
+![Flow Structure](https://github.com/rastogi26/project_api/assets/72301136/756110fc-1011-4d71-969c-3e875380e3f7)
 
 
 
