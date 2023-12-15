@@ -16,6 +16,7 @@ This project is a simple Netflix-like application built with Go and GoFr. It pro
   - [PUT /watched/{id}](#put-watchedid)
   - [DELETE /removemovie/{id}](#delete-removemovieid)
   - [DELETE /removeallmovies](#delete-removeallmovies)
+- [API Documentation](#api-documentation)
 - [MongoDB Atlas](#mongodb-atlas)
 - [UML Diagram](#uml-diagram)
 
@@ -101,6 +102,9 @@ Example:
 ```bash
 curl -X DELETE http://localhost:8000/removeallmovies
 ```
+## API Documentation
+
+-[Thunder Client Collection](<../../Dhruv Rastogi/Desktop/thunder-collection_netflix_go_project.json>)
 
 ## MongoDB Atlas
 
