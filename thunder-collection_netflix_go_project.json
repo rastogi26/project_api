@@ -1,0 +1,84 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "netflix_go_project",
+    "dateExported": "2023-12-15T16:17:42.564Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "193e1505-80c4-4e78-997a-a3355b765757",
+            "colId": "56e62b8b-468a-4cd1-a612-8bdb7d8bad86",
+            "containerId": "",
+            "name": "getALLMovies",
+            "url": "http://localhost:8000/mymovies",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-12-15T16:10:58.920Z",
+            "modified": "2023-12-15T16:11:22.878Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "861e29f9-11ff-441c-b2b8-b28e2f4896cd",
+            "colId": "56e62b8b-468a-4cd1-a612-8bdb7d8bad86",
+            "containerId": "",
+            "name": "addMovie",
+            "url": "http://localhost:8000/addmovie",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-12-15T16:11:50.545Z",
+            "modified": "2023-12-15T16:17:01.286Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Success\",\n  \"genre\": \"drama\",\n  \"watched\": false\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "30d3db8c-652c-4f8e-bd68-1e11f93f3a54",
+            "colId": "56e62b8b-468a-4cd1-a612-8bdb7d8bad86",
+            "containerId": "",
+            "name": "updateMovie",
+            "url": "http://localhost:8000/watched/657c7be488c9e84ece5f4d38",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-12-15T16:12:07.648Z",
+            "modified": "2023-12-15T16:17:20.237Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1a2e5073-8f3a-4067-a1d9-53e871cb7b5f",
+            "colId": "56e62b8b-468a-4cd1-a612-8bdb7d8bad86",
+            "containerId": "",
+            "name": "deleteOneMovie",
+            "url": "http://localhost:8000/removemovie/6575ebf29194e6f7aedbc94e",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-12-15T16:12:19.517Z",
+            "modified": "2023-12-15T16:16:05.642Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "dbb6a87e-0c75-498b-be4e-44e5cc525625",
+            "colId": "56e62b8b-468a-4cd1-a612-8bdb7d8bad86",
+            "containerId": "",
+            "name": "deleteAllMovies",
+            "url": "http://localhost:8000/removeallmovies",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-12-15T16:12:44.237Z",
+            "modified": "2023-12-15T16:16:31.593Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
