@@ -104,7 +104,7 @@ curl -X DELETE http://localhost:8000/removeallmovies
 ```
 ## API Documentation
 
--[Thunder Client Collection](<../../Dhruv Rastogi/Desktop/thunder-collection_netflix_go_project.json>)
+See in the project for thunder client api documentation.
 
 ## MongoDB Atlas
 
