@@ -15,6 +15,7 @@ func SetupNetflixRoutes(app *gofr.Gofr) {
 	app.PUT("/watched/{id}", netflixHandler.WatchedMovie)
 	app.DELETE("/removeallmovies", netflixHandler.RemoveAllMovies)
 	app.DELETE("/removemovie/{id}", netflixHandler.RemoveMovie)
+	
 }
 
 
